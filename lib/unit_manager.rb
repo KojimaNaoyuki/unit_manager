@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require_relative "unit_manager/version"
-require_relative "unit_manager/hellow"
+require_relative "unit_manager/Unit"
 
 module UnitManager
   class Error < StandardError; end
