@@ -1,0 +1,5 @@
+units:
+  - key: money
+    name: 円
+  - key: length
+    name: m

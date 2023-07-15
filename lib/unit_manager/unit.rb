@@ -1,12 +1,12 @@
 module UnitManager
   class Unit
-    def initialize(name:, value:)
-      @name = '円'
-      @value = 1
+    def initialize(key:)
+      @key = key
+      @value = 0
     end
 
-    def get_unit
-      "#{@value}#{@name}"
+    def unit
+      "#{@value}#{@key}"
     end
   end
 end

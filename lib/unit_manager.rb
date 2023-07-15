@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
 require_relative "unit_manager/version"
-require_relative "unit_manager/Unit"
+require_relative "unit_manager/unit"
+require_relative "unit_manager/initialize_unit"
 
 module UnitManager
   class Error < StandardError; end
-  # Your code goes here...
+
+  units = UnitManager::InitializeUnit.new
 end
