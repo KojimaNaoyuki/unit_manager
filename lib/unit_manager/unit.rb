@@ -6,7 +6,7 @@ module UnitManager
     end
 
     def get_unit
-      "#{@value + @name}"
+      "#{@value}#{@name}"
     end
   end
 end
