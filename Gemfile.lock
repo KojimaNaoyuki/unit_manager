@@ -1,0 +1,19 @@
+PATH
+  remote: .
+  specs:
+    unit_manager (0.1.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    rake (13.0.6)
+
+PLATFORMS
+  x64-mingw-ucrt
+
+DEPENDENCIES
+  rake (~> 13.0)
+  unit_manager!
+
+BUNDLED WITH
+   2.4.10
