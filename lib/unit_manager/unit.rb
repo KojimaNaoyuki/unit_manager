@@ -7,7 +7,7 @@ module UnitManager
     end
 
     def unit
-      "#{@value}#{@key}"
+      "#{@value}#{@name}"
     end
   end
 end
