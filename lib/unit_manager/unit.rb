@@ -1,7 +1,8 @@
 module UnitManager
   class Unit
-    def initialize(key:)
+    def initialize(key:, name:)
       @key = key
+      @name = name
       @value = 0
     end
 
