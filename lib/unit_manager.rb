@@ -6,6 +6,4 @@ require_relative "unit_manager/initialize_unit"
 
 module UnitManager
   class Error < StandardError; end
-
-  units = UnitManager::InitializeUnit.new
 end
