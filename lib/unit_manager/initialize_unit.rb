@@ -9,7 +9,7 @@ module UnitManager
       units_hash = open("#{Dir::pwd}/lib/unit_manager/unit.yml", 'r') { |f| YAML.load(f) }
 
       units = units_hash['units'].each_with_object({}) do |unit, units|
-        units["#{unit['key']}"] = UnitManager::Unit.new(key: unit['key'], name: unit['name'])
+        units["#{unit['key']}"] = UnitManager::Unit.new(key: unit['key'], name: unit['name'], equation: unit['equation'])
       end
 
       @units = units
