@@ -1,6 +1,7 @@
 module UnitManager
   class Unit
     require 'active_support'
+    require "pry"
 
     def initialize(key:, name:, equation:)
       @key = key
