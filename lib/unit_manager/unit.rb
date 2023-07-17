@@ -25,8 +25,8 @@ module UnitManager
     def calculation_equation(split_equation:)
 
       while split_equation.index('*').present? || split_equation.index('/').present? do
-        multiplication_index = split_equation.index('*')
-        division_index = split_equation.index('/')
+        multiplication_index = split_equation.index('*').presence || 1000
+        division_index = split_equation.index('/').presence || 1000
 
         if multiplication_index.present? && multiplication_index <= division_index
           split_equation = multiplication(split_equation: split_equation, index: multiplication_index)
@@ -40,7 +40,7 @@ module UnitManager
       while split_equation.index('+').present? || split_equation.index('-').present? do
         addition_index = split_equation.index('+')
         subtraction_index = split_equation.index('-')
-        
+
         if addition_index.present?
           split_equation = addition(split_equation: split_equation, index: addition_index)
         end
