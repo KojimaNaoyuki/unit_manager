@@ -1,7 +1,6 @@
 module UnitManager
   class Unit
     require 'active_support'
-    require "pry"
 
     def initialize(key:, name:, equation:)
       @key = key
@@ -25,20 +24,16 @@ module UnitManager
     
     def calculation_equation(split_equation:)
 
-      binding.pry
-
       while split_equation.index('*').present? || split_equation.index('/').present? do
         multiplication_index = split_equation.index('*').presence || 1000
         division_index = split_equation.index('/').presence || 1000
 
-        binding.pry
-
-        if multiplication_index.present? && multiplication_index <= division_index
+        if multiplication_index <= division_index
           multiplication(split_equation: split_equation, index: multiplication_index)
           next
         end
         
-        if division_index.present? && division_index < multiplication_index
+        if division_index < multiplication_index
           division(split_equation: split_equation, index: division_index)
           next
         end
@@ -48,22 +43,18 @@ module UnitManager
         addition_index = split_equation.index('+').presence || 1000
         subtraction_index = split_equation.index('-').presence || 1000
 
-        binding.pry
-
-        if addition_index.present? && addition_index <= subtraction_index
+        if addition_index <= subtraction_index
           addition(split_equation: split_equation, index: addition_index)
           next
         end
         
-        if subtraction_index.present? && subtraction_index < addition_index
+        if subtraction_index < addition_index
           subtraction(split_equation: split_equation, index: subtraction_index)
           next
         end
       end
 
       result = split_equation[0]
-      
-      binding.pry
 
       result.to_f.round
     end
