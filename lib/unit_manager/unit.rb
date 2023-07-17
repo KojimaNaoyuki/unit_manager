@@ -51,6 +51,7 @@ module UnitManager
       end
 
       result = split_equation[0]
+      print(result)
 
       result
     end
