@@ -61,7 +61,7 @@ module UnitManager
       
       binding.pry
 
-      result.round
+      result.to_f.round
     end
 
     def multiplication(split_equation:, index:)
