@@ -35,25 +35,29 @@ module UnitManager
 
         if multiplication_index.present? && multiplication_index <= division_index
           multiplication(split_equation: split_equation, index: multiplication_index)
+          next
         end
         
         if division_index.present? && division_index < multiplication_index
           division(split_equation: split_equation, index: division_index)
+          next
         end
       end
 
       while split_equation.index('+').present? || split_equation.index('-').present? do
-        addition_index = split_equation.index('+')
-        subtraction_index = split_equation.index('-')
+        addition_index = split_equation.index('+').presence || 1000
+        subtraction_index = split_equation.index('-').presence || 1000
 
         binding.pry
 
-        if addition_index.present?
+        if addition_index.present? && addition_index <= subtraction_index
           addition(split_equation: split_equation, index: addition_index)
+          next
         end
         
-        if subtraction_index.present?
+        if subtraction_index.present? && subtraction_index < addition_index
           subtraction(split_equation: split_equation, index: subtraction_index)
+          next
         end
       end
 
