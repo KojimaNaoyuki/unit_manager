@@ -24,6 +24,8 @@ module UnitManager
     
     def calculation_equation(split_equation:)
 
+      binding.pry
+
       while split_equation.index('*').present? || split_equation.index('/').present? do
         multiplication_index = split_equation.index('*').presence || 1000
         division_index = split_equation.index('/').presence || 1000
@@ -51,7 +53,8 @@ module UnitManager
       end
 
       result = split_equation[0]
-      print(result)
+      
+      binding.pry
 
       result
     end
