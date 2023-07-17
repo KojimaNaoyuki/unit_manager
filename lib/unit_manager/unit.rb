@@ -17,7 +17,7 @@ module UnitManager
     def derive_value(value)
       split_equation = @equation.split
 
-      split_equation.map! { |array_value| array_value == "<value>" ? value : array_value }
+      split_equation.map! { |array_value| array_value == "<value>" ? value.to_s : array_value }
 
       calculation_equation(split_equation: split_equation)
     end
@@ -26,11 +26,12 @@ module UnitManager
 
       while split_equation.index('*').present? || split_equation.index('/').present? do
         multiplication_index = split_equation.index('*')
+        division_index = split_equation.index('/')
+
         if multiplication_index.present? && multiplication_index <= division_index
           split_equation = multiplication(split_equation: split_equation, index: multiplication_index)
         end
         
-        division_index = split_equation.index('/')
         if division_index.present? && division_index < multiplication_index
           split_equation = division(split_equation: split_equation, index: division_index)
         end
@@ -38,11 +39,12 @@ module UnitManager
 
       while split_equation.index('+').present? || split_equation.index('-').present? do
         addition_index = split_equation.index('+')
+        subtraction_index = split_equation.index('-')
+        
         if addition_index.present?
           split_equation = addition(split_equation: split_equation, index: addition_index)
         end
         
-        subtraction_index = split_equation.index('-')
         if subtraction_index.present?
           split_equation = subtraction(split_equation: split_equation, index: addition_index)
         end
