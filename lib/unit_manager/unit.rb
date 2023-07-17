@@ -66,25 +66,25 @@ module UnitManager
 
     def multiplication(split_equation:, index:)
       result = split_equation[index-1].to_f * split_equation[index+1].to_f
-      split_equation.slice!(index, index+1)
+      split_equation.slice!(index, 2)
       split_equation[index-1] = result.to_s
     end
 
     def division(split_equation:, index:)
       result = split_equation[index-1].to_f / split_equation[index+1].to_f
-      split_equation.slice!(index, index+1)
+      split_equation.slice!(index, 2)
       split_equation[index-1] = result.to_s
     end
 
     def addition(split_equation:, index:)
       result = split_equation[index-1].to_f + split_equation[index+1].to_f
-      split_equation.slice!(index, index+1)
+      split_equation.slice!(index, 2)
       split_equation[index-1] = result.to_s
     end
 
     def subtraction(split_equation:, index:)
       result = split_equation[index-1].to_f - split_equation[index+1].to_f
-      split_equation.slice!(index, index+1)
+      split_equation.slice!(index, 2)
       split_equation[index-1] = result.to_s
     end
   end
