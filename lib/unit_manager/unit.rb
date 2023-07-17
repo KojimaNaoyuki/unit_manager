@@ -31,6 +31,8 @@ module UnitManager
         multiplication_index = split_equation.index('*').presence || 1000
         division_index = split_equation.index('/').presence || 1000
 
+        binding.pry
+
         if multiplication_index.present? && multiplication_index <= division_index
           split_equation = multiplication(split_equation: split_equation, index: multiplication_index)
         end
@@ -43,6 +45,8 @@ module UnitManager
       while split_equation.index('+').present? || split_equation.index('-').present? do
         addition_index = split_equation.index('+')
         subtraction_index = split_equation.index('-')
+
+        binding.pry
 
         if addition_index.present?
           split_equation = addition(split_equation: split_equation, index: addition_index)
