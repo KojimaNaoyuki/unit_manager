@@ -53,7 +53,7 @@ module UnitManager
         end
         
         if subtraction_index.present?
-          subtraction(split_equation: split_equation, index: addition_index)
+          subtraction(split_equation: split_equation, index: subtraction_index)
         end
       end
 
