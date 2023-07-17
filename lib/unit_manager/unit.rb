@@ -34,11 +34,11 @@ module UnitManager
         binding.pry
 
         if multiplication_index.present? && multiplication_index <= division_index
-          split_equation = multiplication(split_equation: split_equation, index: multiplication_index)
+          multiplication(split_equation: split_equation, index: multiplication_index)
         end
         
         if division_index.present? && division_index < multiplication_index
-          split_equation = division(split_equation: split_equation, index: division_index)
+          division(split_equation: split_equation, index: division_index)
         end
       end
 
@@ -49,11 +49,11 @@ module UnitManager
         binding.pry
 
         if addition_index.present?
-          split_equation = addition(split_equation: split_equation, index: addition_index)
+          addition(split_equation: split_equation, index: addition_index)
         end
         
         if subtraction_index.present?
-          split_equation = subtraction(split_equation: split_equation, index: addition_index)
+          subtraction(split_equation: split_equation, index: addition_index)
         end
       end
 
@@ -65,35 +65,27 @@ module UnitManager
     end
 
     def multiplication(split_equation:, index:)
-      result = split_equation[index-1].to_i * split_equation[index+1].to_i
+      result = split_equation[index-1].to_f * split_equation[index+1].to_f
       split_equation.slice!(index, index+1)
       split_equation[index-1] = result.to_s
-
-      split_equation
     end
 
     def division(split_equation:, index:)
-      result = split_equation[index-1].to_i / split_equation[index+1].to_i
+      result = split_equation[index-1].to_f / split_equation[index+1].to_f
       split_equation.slice!(index, index+1)
       split_equation[index-1] = result.to_s
-
-      split_equation
     end
 
     def addition(split_equation:, index:)
-      result = split_equation[index-1].to_i + split_equation[index+1].to_i
+      result = split_equation[index-1].to_f + split_equation[index+1].to_f
       split_equation.slice!(index, index+1)
       split_equation[index-1] = result.to_s
-
-      split_equation
     end
 
     def subtraction(split_equation:, index:)
-      result = split_equation[index-1].to_i - split_equation[index+1].to_i
+      result = split_equation[index-1].to_f - split_equation[index+1].to_f
       split_equation.slice!(index, index+1)
       split_equation[index-1] = result.to_s
-
-      split_equation
     end
   end
 end
