@@ -5,5 +5,5 @@ File.new('unit_config/unit.yml', 'w') unless File.exist?("unit_config/unit.yml")
 
 ENV['unit_config_path'] = "#{Dir.pwd}/unit_config/unit.yml"
 
-print('Initialize Exit\n')
-print('- unit_config/unit.yml')
+puts('Initialize Exit\n')
+puts('- unit_config/unit.yml')
