@@ -1,15 +1,5 @@
 #!/usr/bin/env ruby
 
-case ARGV[0]
-when 'init'
-  init
-when 'confirmation'
-  confirmation
-else
-  puts 'command does not exist'
-end
-
-
 def confirmation
   puts "unit_config_path: #{ENV['unit_config_path']}"
 end
@@ -22,4 +12,14 @@ def init
   
   puts '=== Initialize Exit ==='
   puts '- unit_config/unit.yml'
+end
+
+
+case ARGV[0]
+when 'init'
+  init
+when 'confirmation'
+  confirmation
+else
+  puts 'command does not exist'
 end
