@@ -4,6 +4,9 @@ module UnitManager
     require_relative '../util/calculation_helper'
     include CalculationHelper
 
+    MAX_EQUATION_SIZE = 999
+    INVALID_EQUATION_SYMBOL = ["(", ")", "!", "&", "%"]
+
     def initialize(key:, name:, equation:)
       @key = key
       @name = name
