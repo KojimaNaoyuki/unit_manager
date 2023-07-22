@@ -2,8 +2,8 @@ module CalculationHelper
   def calculation_equation(split_equation:)
   
     while split_equation.index('*').present? || split_equation.index('/').present? do
-      multiplication_index = split_equation.index('*').presence || 1000
-      division_index = split_equation.index('/').presence || 1000
+      multiplication_index = split_equation.index('*').presence || UnitManager::Unit::MAX_EQUATION_SIZE
+      division_index = split_equation.index('/').presence || UnitManager::Unit::MAX_EQUATION_SIZE
   
       if multiplication_index <= division_index
         multiplication(split_equation: split_equation, index: multiplication_index)
@@ -17,8 +17,8 @@ module CalculationHelper
     end
   
     while split_equation.index('+').present? || split_equation.index('-').present? do
-      addition_index = split_equation.index('+').presence || 1000
-      subtraction_index = split_equation.index('-').presence || 1000
+      addition_index = split_equation.index('+').presence || UnitManager::Unit::MAX_EQUATION_SIZE
+      subtraction_index = split_equation.index('-').presence || UnitManager::Unit::MAX_EQUATION_SIZE
   
       if addition_index <= subtraction_index
         addition(split_equation: split_equation, index: addition_index)
