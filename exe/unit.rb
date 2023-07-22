@@ -6,7 +6,7 @@ def confirmation
   unit_config_path_file = File.open("#{GEM_INSTALL_PATH}/config/unit_config_path.txt", 'r')
   unit_config_path = unit_config_path_file.read
   unit_config_path_file.close
-  puts unit_config_path_file
+  puts unit_config_path
 end
 
 def init
