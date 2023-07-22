@@ -1,31 +1,73 @@
 # UnitManager
 
-TODO: Delete this and the text below, and describe your gem
+## 概要
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/unit_manager`. To experiment with that code, run `bin/console` for an interactive prompt.
+単位を管理する gem です。この gem を活用することで、「円」や「cm」などのモノの単位を扱いやすくします。  
+一つの yml ファイルに単位名と単位を表示する時の計算式を記述しておくことで、プログラム内で単位を呼び出す時にその計算式に従って単位名と共に値が出力されます。  
+単位や計算式を修正する場合も yml ファイルを編集するのみのため、プログラム上の修正は不要になります。
 
-## Installation
+## 使用方法
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
+### 1. gemfile に追記
 
-Install the gem and add to the application's Gemfile by executing:
+```
+gem 'unit_manager'
+```
 
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG
+### 2. コマンドを利用して gem UnitManager をプロジェクトで利用可能にする
 
-If bundler is not being used to manage dependencies, install the gem by executing:
+**必ずプロジェクトディレクトリ直下で使用してください(gemfile が存在する場所)**  
+ 単位を管理する yml ファイルが作成されます。
 
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG
+```
+unit init
+```
 
-## Usage
+### 3. /unit_config/unit.yml に扱う単位を記述する
 
-TODO: Write usage instructions here
+equation で指定した式により計算された値が単位名と共に戻り値として受け取れます。
 
-## Development
+- key: 単位のキー名 `(キー名を利用してプログラムから単位にアクセスする)`
+- name: 単位名 `(プログラムから単位が呼び出された時に値と共に出力される単位名 例: 円)`
+- quation: 単位算出式 `(ここで定義された計算式を利用して値が算出されて表示される)`
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+#### equation について
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+- 式中の<value>と記述した部分にプログラム内で指定した値が代入されて計算されます。
+- 演算子は+, -, \*, /が使用できます。
 
-## Contributing
+```
+# 例
+units:
+  - key: money
+    name: 円
+    equation: <value> * 1.1
+  - key: length
+    name: m
+    equation: <value>
+```
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/unit_manager.
+### 4. gem を require する
+
+```
+require('unit_manager')
+```
+
+### 5. unit_manager をプログラム内で利用可能にする
+
+UnitManager::InitializeUnit.new を利用することで、yml ファイルに定義した単位が読み込まれます。  
+ UnitManager::InitializeUnit クラスのアクセサメソッドである units に単位情報が入っています。
+
+```
+units = UnitManager::InitializeUnit.new.units
+```
+
+### 6. 単位を取得する
+
+unit.yml に記述されているキー名が、units のキー名になっています。このキー名によって取得する単位を切り替えます。  
+ units['指定のキー名']の中に unit クラスが存在し、unit メソッドによって単位が呼び出されます。このメソッドの引数に値を渡す事によって equation で指定した計算式に従って単位も含めて値を出力します。
+
+```
+units['money'].unit(1000)
+=> 1100円
+```
