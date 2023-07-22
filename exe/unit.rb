@@ -1,18 +1,17 @@
 #!/usr/bin/env ruby
 
-GEM_INSTALL_PATH = File.expand_path('..')
-GEM_INSTALL_PATH_tmp = __dir__
+GEM_INSTALL_PATH = __dir__.slice!(-4)
 
 def confirmation
-  puts "unit_config_path: #{ENV['unit_config_path']}"
+  unit_config_path_file = File.open("#{GEM_INSTALL_PATH}/config/unit_config_path.txt", 'r')
+  unit_config_path = unit_config_path_file.read
+  unit_config_path_file.close
+  puts unit_config_path_file
 end
 
 def init
   Dir.mkdir('unit_config') unless Dir.exist?('unit_config')
   File.new('unit_config/unit.yml', 'w') unless File.exist?("unit_config/unit.yml")
-
-  puts GEM_INSTALL_PATH
-  puts GEM_INSTALL_PATH_tmp
 
   File.open("#{GEM_INSTALL_PATH}/config/unit_config_path.txt", mode = 'w') do | f |
     f.write("#{Dir.pwd}/unit_config/unit.yml")
