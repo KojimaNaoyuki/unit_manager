@@ -2,3 +2,6 @@ units:
   - key: money
     name: 円
     equation: <value> * 1.1
+  - key: length
+    name: m
+    equation: <value>
