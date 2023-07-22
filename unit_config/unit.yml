@@ -1,4 +1,0 @@
-units:
-  - key: money
-    name: 円
-    equation: <value> * 1.1
