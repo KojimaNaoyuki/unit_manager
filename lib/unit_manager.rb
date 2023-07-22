@@ -6,4 +6,5 @@ require_relative "unit_manager/initialize_unit"
 
 module UnitManager
   class Error < StandardError; end
+  class InvalidEquation < Error; end
 end

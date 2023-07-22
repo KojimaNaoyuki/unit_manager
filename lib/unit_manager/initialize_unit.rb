@@ -9,6 +9,8 @@ module UnitManager
       units_hash = open(unit_config_path, 'r') { |f| YAML.load(f) }
 
       units = units_hash['units'].each_with_object({}) do |unit, units|
+        raise InvalidEquation, "invalid Equation: #{unit['equation']}" if 2 < unit['equation'].split.size
+
         units["#{unit['key']}"] = UnitManager::Unit.new(key: unit['key'], name: unit['name'], equation: unit['equation'])
       end
 
