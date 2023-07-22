@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-GEM_INSTALL_PATH = __dir__.slice!(-4)
+GEM_INSTALL_PATH = __dir__.slice!(0, __dir__.size-4)
 
 def confirmation
   unit_config_path_file = File.open("#{GEM_INSTALL_PATH}/config/unit_config_path.txt", 'r')
@@ -13,7 +13,6 @@ def init
   Dir.mkdir('unit_config') unless Dir.exist?('unit_config')
   File.new('unit_config/unit.yml', 'w') unless File.exist?("unit_config/unit.yml")
 
-  puts __dir__.slice!(-1)
   puts GEM_INSTALL_PATH
 
   File.open("#{GEM_INSTALL_PATH}/config/unit_config_path.txt", mode = 'w') do | f |
