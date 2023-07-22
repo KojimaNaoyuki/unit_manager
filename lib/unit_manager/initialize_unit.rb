@@ -16,7 +16,7 @@ module UnitManager
     end
 
     def unit_config_path
-      gem_install_path = __dir__.slice!(0, __dir__.size-4)
+      gem_install_path = __dir__.slice!(0, __dir__.size-17)
 
       unit_config_path_file = File.open("#{gem_install_path}/config/unit_config_path.txt", 'r')
       unit_config_path = unit_config_path_file.read
