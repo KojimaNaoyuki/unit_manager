@@ -11,6 +11,7 @@ def init
   Dir.mkdir('unit_config') unless Dir.exist?('unit_config')
   File.new('unit_config/unit.yml', 'w') unless File.exist?("unit_config/unit.yml")
 
+  puts GEM_INSTALL_PATH
   puts GEM_INSTALL_PATH_tmp
 
   File.open("#{GEM_INSTALL_PATH}/config/unit_config_path.txt", mode = 'w') do | f |
