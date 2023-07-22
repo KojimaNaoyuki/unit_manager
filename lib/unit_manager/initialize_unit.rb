@@ -5,7 +5,7 @@ module UnitManager
 
     attr_reader :units
 
-    GEM_INSTALL_PATH = __dir__.slice!(-4)
+    GEM_INSTALL_PATH = __dir__.slice!(0, __dir__.size-4)
 
     def initialize
       unit_config_path_file = File.open("#{GEM_INSTALL_PATH}/config/unit_config_path.txt", 'r')
