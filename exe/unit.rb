@@ -8,7 +8,7 @@ def init
   Dir.mkdir('unit_config') unless Dir.exist?('unit_config')
   File.new('unit_config/unit.yml', 'w') unless File.exist?("unit_config/unit.yml")
 
-  File.open("#{Dir.pwd}/config/unit_config_path.txt", mode = 'w') do | f |
+  File.open("#{__dir__}/config/unit_config_path.txt", mode = 'w') do | f |
     f.write("#{Dir.pwd}/unit_config/unit.yml")
   end
   
