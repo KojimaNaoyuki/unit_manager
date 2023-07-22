@@ -11,7 +11,7 @@ module UnitManager
       units = units_hash['units'].each_with_object({}) do |unit, units|
         split_equation = unit['equation'].split
         raise InvalidEquation, "too long equation invalid: #{unit['equation']}" if 999 < split_equation.size
-        raise InvalidEquation. "<value> does not exist equation invalid: #{unit['equation']}" unless split_equation.include?('<value>')
+        raise InvalidEquation, "<value> does not exist equation invalid: #{unit['equation']}" unless split_equation.include?('<value>')
 
         units["#{unit['key']}"] = UnitManager::Unit.new(key: unit['key'], name: unit['name'], equation: unit['equation'])
       end
