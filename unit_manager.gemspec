@@ -5,7 +5,7 @@ require_relative "lib/unit_manager/version"
 Gem::Specification.new do |spec|
   spec.name = "unit_manager"
   spec.version = UnitManager::VERSION
-  spec.authors = ["KojimaNaoyuki"]
+  spec.authors = ["NaoyukiKojima"]
   spec.email = ["programkoji213@gmail.com"]
 
   spec.summary = "A gem that manages units."
