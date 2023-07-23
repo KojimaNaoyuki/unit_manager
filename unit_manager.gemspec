@@ -12,6 +12,7 @@ Gem::Specification.new do |spec|
   spec.description = "Manage units easily."
   spec.homepage = "https://github.com/KojimaNaoyuki/unit_manager"
   spec.required_ruby_version = ">= 2.6.0"
+  spec.license = "MIT"
 
   spec.metadata["homepage_uri"] = spec.homepage
   # spec.metadata["source_code_uri"] = "https://github.com/KojimaNaoyuki/unit_manager"

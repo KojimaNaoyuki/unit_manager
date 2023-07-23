@@ -23,6 +23,15 @@ gem 'unit_manager'
 unit init
 ```
 
+#### 注意
+
+Mac OS の場合にコマンドが実行できない可能性があります。
+その場合は Ruby 本体インストール先の bin ファイルから直接 unit スクリプトを実行してください。
+
+```
+ruby /Ruby本体インストール先/bin/unit init
+```
+
 ### 3. /unit_config/unit.yml に扱う単位を記述する
 
 equation で指定した式により計算された値が単位名と共に戻り値として受け取れます。
