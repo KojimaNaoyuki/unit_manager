@@ -10,12 +10,12 @@ Gem::Specification.new do |spec|
 
   spec.summary = "A gem that manages units."
   spec.description = "Manage units easily."
-  spec.homepage = "https://rubygems.org/gems/unit_manager"
+  spec.homepage = "https://github.com/KojimaNaoyuki/unit_manager"
   spec.required_ruby_version = ">= 2.6.0"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/KojimaNaoyuki/unit_manager"
-  spec.metadata["changelog_uri"] = "https://github.com/KojimaNaoyuki/unit_manager"
+  # spec.metadata["source_code_uri"] = "https://github.com/KojimaNaoyuki/unit_manager"
+  # spec.metadata["changelog_uri"] = "https://github.com/KojimaNaoyuki/unit_manager"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
